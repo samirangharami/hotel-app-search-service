@@ -1,0 +1,28 @@
+services:
+  search-service:
+    build: .
+    container_name: search-service
+
+    ports:
+      - "3001:3001"
+
+    env_file:
+      - .env
+
+    depends_on:
+      - mongo
+      - redis
+
+  mongo:
+    image: mongo:7
+    container_name: search-mongo
+
+    ports:
+      - "27017:27017"
+
+  redis:
+    image: redis:7
+    container_name: search-redis
+
+    ports:
+      - "6379:6379"
