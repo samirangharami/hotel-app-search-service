@@ -9,20 +9,20 @@ services:
     env_file:
       - .env
 
-    depends_on:
-      - mongo
-      - redis
+  #   depends_on:
+  #     - mongo
+  #     - redis
 
-  mongo:
-    image: mongo:7
-    container_name: search-mongo
+  # mongo:
+  #   image: mongo:7
+  #   container_name: search-mongo
 
-    ports:
-      - "27017:27017"
+  #   ports:
+  #     - "27017:27017"
 
-  redis:
-    image: redis:7
-    container_name: search-redis
+  # redis:
+  #   image: redis:7
+  #   container_name: search-redis
 
-    ports:
-      - "6379:6379"
+  #   ports:
+  #     - "6379:6379"

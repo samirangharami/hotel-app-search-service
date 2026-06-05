@@ -8,9 +8,12 @@ export const HotelService = {
     const cached = await CacheService.get(cacheKey);
 
     if (cached) {
+      console.log("cache hit");
+      
       return JSON.parse(cached);
     }
-
+    console.log("cache miss");
+    
     const hotels = await HotelRepository.findByCity(city);
 
     await CacheService.set(cacheKey, JSON.stringify(hotels));
